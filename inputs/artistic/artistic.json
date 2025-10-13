@@ -1,0 +1,59 @@
+{
+  "defgrid_config": {
+    "area": false,
+    "sigma": 0.1,
+    "k_ring": 1,
+    "triangulate_method": "triwild+canny",
+    "lambda_reconst": 0.0,
+    "lambda_area": 0.0,
+    "lambda_lap": 0.0,
+    "lambda_reparam": 1.0,
+    "cotan": false,
+    "lambda_boundary": 0.01,
+    "remesh_epoch": 1000,
+    "to_normalize": false,
+    "loss_threshold": 0,
+    "subdiv_loss": 2.0,
+    "skip_subdiv_itr": 10,
+    "small_face_ratio": 0.000001,
+    "harmonic_lambda": 0.3,
+    "batch_size": 204800,
+    "triwild_edge_r": 0.003
+  },
+  "defgrid_opt_config": {
+    "learning_rate": 1.0,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "num_epochs": 100
+  },
+  "nerf2D_config": {
+    "fea": 5,
+    "mlp_mid_dim": [
+      128,
+      128
+    ],
+    "batch_size": 1048576,
+    "activation": "tanh",
+    "save_mask": true,
+    "num_epochs": 400,
+    "learning_rate": 0.02,
+    "l1_weight": 0.005,
+    "round_itr": 200,
+    "round_threshold": 0.02,
+    "inc_threshold": 0.00001,
+    "mesh_modify": 70,
+    "spp": [
+      4,
+      16
+    ],
+    "edge_spp": 1,
+    "lambda_boundary": 0.01,
+    "largesteps_reparam_config": {
+      "lambda_reparam": 0.5,
+      "cotan": false
+    },
+    "simple_fea": false
+  }
+}

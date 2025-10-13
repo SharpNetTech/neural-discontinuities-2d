@@ -1,0 +1,18 @@
+NOTICE
+
+2D Neural Fields with Learned Discontinuities
+
+Copyright (c) 2025 Chenxi Liu, Siqi Wang, Matthew Fisher, Deepali Aneja, Alec Jacobson
+
+Licensed under the Apache License, Version 2.0 (the "License").
+You may not use this file except in compliance with the License.
+A copy of the License is included in the file LICENSE in the root of this repository
+and is also available at http://www.apache.org/licenses/LICENSE-2.0
+
+Third-party notices and attributions:
+
+- Sample images under inputs/artistic/ (e.g., 009.jpg, 014.jpg, 019.jpg) are by Oscar Chávez,
+  licensed under CC BY-NC-SA 2.0. Links to the originals are provided in README.md.
+- This project depends on external software including, but not limited to, PyTorch and TriWild,
+  which are not distributed as part of this repository. Please refer to their respective
+  repositories and licenses for terms governing their use.
