@@ -1590,3 +1590,25 @@ class MLPHybrid(MLP):
         image = to_pil_image(raw_px)
 
         return image
+
+    @torch.no_grad()
+    def for_sharpnet(self, roi=(0,1,0,1), resolution=512, dim=1):
+
+        X = torch.linspace(roi[0], roi[1], resolution)
+        Y = torch.linspace(roi[2], roi[3], resolution)
+
+        yy, xx = torch.meshgrid(Y, X, indexing="ij")
+        yy = yy.reshape(-1, 1)
+        xx = xx.reshape(-1, 1)
+        coords = torch.concatenate([yy, xx], dim=-1).to(self.device)
+        encoded_coord = coords
+        encoded_coord.requires_grad = False
+
+        batch_size = 3 * 4 * 512 * 512
+        out = np.empty((0, dim))
+
+        for coord_batch in tqdm(encoded_coord.split(batch_size)):
+            q = self(coord_batch).detach().cpu().numpy()
+            out = np.concatenate([out, q], axis=0)
+        out = out.reshape((resolution, resolution, dim))
+        return out
