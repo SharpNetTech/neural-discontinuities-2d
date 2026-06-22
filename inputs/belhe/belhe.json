@@ -1,0 +1,10 @@
+{
+  "defgrid_config": { "triwild_edge_r": 0.01 },
+  "defgrid_opt_config": {},
+  "nerf2D_config": {
+    "mlp_mid_dim": [128, 128],
+    "out_dim": 1,
+    "activation": "tanh",
+    "num_epochs": 1000
+  }
+}
