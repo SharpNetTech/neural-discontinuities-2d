@@ -47,8 +47,10 @@ def fit_nerf2D(image: Image, mesh: TriangleMesh, nerf2D_config: dict, fit_type: 
     feature_type = fit_type
     # feature_type = 'discontinuity'
     # feature_type = 'per_vertex'
+    mid_dim = nerf2D_config.get('mlp_mid_dim', [128, 128])
+    out_dim = nerf2D_config.get('out_dim', 3)
     mlp_hybrid = MLPHybrid(
-        image, [fea_dim, 128, 128, 3], mesh,
+        image, [fea_dim] + mid_dim + [out_dim], mesh,
         feature_type=feature_type,
         opt_config=nerf2D_config, snapshot_dir=snapshot)
     mlp_hybrid = mlp_hybrid.cuda()
@@ -273,7 +275,10 @@ def fit_nerf2D(image: Image, mesh: TriangleMesh, nerf2D_config: dict, fit_type: 
                     # Visualize features
                     if feature_type == 'discontinuity':
                         ax = plot_mesh(mesh, discontinuity=True)
-                        ax = visualize_discontinuous_features(ax, mlp_hybrid)
+                        try:
+                            ax = visualize_discontinuous_features(ax, mlp_hybrid)
+                        except Exception as e:
+                            print("Warning: cannot visualize discontinuous features:", e)
                         ax.set_title(f'itr: {epoch} / {num_epochs}')
                         fea_png = snapshot / f'fea_{epoch:03d}.png'
                         if (epoch + 1) == num_epochs:
