@@ -1,7 +1,7 @@
 <div align="center">
 <h1>SharpNet: Enhancing MLPs to Represent Functions with Controlled Non&#8288;-&#8288;differentiability</h1>
 
-[ACM DL](https://doi.org/10.1145/3811330) | [Homepage](https://sharpnettech.github.io) | [SharpNet2D](https://github.com/SharpNetTech/SharpNet2D) | Coming soon...
+[ACM DL](https://doi.org/10.1145/3811330) | [Homepage](https://sharpnettech.github.io) | [SharpNet2D](https://github.com/SharpNetTech/SharpNet2D) | [SharpNet3D](https://github.com/SharpNetTech/SharpNet3D)
 
 ACM Transactions on Graphics (SIGGRAPH 2026)
 
